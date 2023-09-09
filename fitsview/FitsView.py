@@ -7,7 +7,7 @@
 #----------------
 
 import sys, os
-from FitsView_gui import *
+from fitsview.FitsView_gui import *
 from PyQt5.QtWidgets import QApplication
 
 app = QApplication(sys.argv)

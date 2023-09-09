@@ -21,7 +21,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QMessageBox, QLa
 from PyQt5 import QtCore, QtGui
 
 
-from FitsView_image import *
+from fitsview.FitsView_image import *
 
 warnings.simplefilter('ignore', category=AstropyWarning)
 
@@ -211,7 +211,7 @@ class FitsView(QWidget):
 
    def load_coo(self):       
        plik=open(self.coo_file,'r')
-       self.setWindowTitle(self.fname+"   "+self.coo_file.split("/")[-1])
+       self.setWindowTitle('new_name')# MIREK HERE self.fname+"   "+self.coo_file.split("/")[-1])
               
        self.ext_x=[]
        self.ext_y=[]
@@ -263,8 +263,8 @@ class FitsView(QWidget):
           try: 
              for line in plik:
                  if "#" not in line and len(line.strip())>0: 
-                    self.ext_x.append(float(line.split()[int(self.cfg_xCol)]))
-                    self.ext_y.append(float(line.split()[int(self.cfg_yCol)]))
+                    # MIREK HERE self.ext_x.append(float(line.split()[int(self.cfg_xCol)]))
+                    # MIREK HERE self.ext_y.append(float(line.split()[int(self.cfg_yCol)]))
                     self.ext_l.append(line)                 
           except IndexError: 
                  self.ext_x,self.ext_y,self.ext_l=[],[],[]
@@ -273,7 +273,7 @@ class FitsView(QWidget):
                  self.msg.exec_()          
        self.coo_p.setStyleSheet("") 
        self.coo_p.repaint()      # trzeba to tu bo na mac os czasem sie nie updatuje
-       for x in self.tab: x.update()  
+       # MIREK HERE for x in self.tab: x.update()  
 
 
    def updateHInfo(self):
